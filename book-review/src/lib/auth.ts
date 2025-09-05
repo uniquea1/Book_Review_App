@@ -1,3 +1,4 @@
+
 export function getApiBase(): string {
   const basePath = process.env.NEXT_PUBLIC_API_BASE_PATH || "";
   return basePath.replace(/\/$/, "");
@@ -70,3 +71,6 @@ export async function addBookToDefaultShelf(bookId: number): Promise<void> {
 }
 
 
+export function getBackendUrl(): string {
+  return getApiBase(); // reuse your existing logic
+}

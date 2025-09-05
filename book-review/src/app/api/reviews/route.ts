@@ -167,7 +167,7 @@ export async function PATCH() {
   try {
     const books = await prisma.book.findMany();
     const bookMap: Record<string, number> = {};
-    books.forEach(b => (bookMap[b.title] = b.id));
+    books.forEach((b: { title: string; id: number }) => (bookMap[b.title] = b.id));
 
     const mockReviews = [
       { bookTitle: "The Great Gatsby", username: "Alice", rating: 5, reviewText: "A timeless classic! The Jazz Age comes alive beautifully." },
